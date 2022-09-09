@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { PokemonList } from './components/PokemonList';
 import Searcher from './components/Searcher';
 import { getPokemons } from './api';
-import { setPokemonsAction } from './actions';
+import { getPokemonsWithDetailsAction } from './actions';
 import logo from './static/logo.svg';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    getPokemons().then((data) => dispatch(setPokemonsAction(data)));
+    getPokemons().then((data) => dispatch(getPokemonsWithDetailsAction(data)));
   }, []);
 
   return (

@@ -1,3 +1,4 @@
+import getPokemonDetails from '../api/getPokemonDetails.api';
 import types from './types';
 
 export function setPokemonsAction(payload) {
@@ -6,3 +7,12 @@ export function setPokemonsAction(payload) {
     payload,
   };
 }
+
+export const getPokemonsWithDetailsAction =
+  (pokemons = []) =>
+  async (dispatch) => {
+    const pokemonsWithDetails = await Promise.all(
+      pokemons.map((pokemon) => getPokemonDetails(pokemon.url)),
+    );
+    dispatch(setPokemonsAction(pokemonsWithDetails));
+  };
