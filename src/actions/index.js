@@ -8,6 +8,12 @@ export function setPokemonsAction(payload) {
   };
 }
 
+export function setLoadingAction() {
+  return {
+    type: types.setLoading,
+  };
+}
+
 export const getPokemonsWithDetailsAction =
   (pokemons = []) =>
   async (dispatch) => {
