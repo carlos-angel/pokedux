@@ -5,12 +5,8 @@ export default function PokemonList({ pokemons }) {
   return (
     <div className='PokemonList'>
       {pokemons.map((pokemon) => (
-        <PokemonCard {...pokemon} key={pokemon.id} />
+        <PokemonCard key={pokemon.id} name={pokemon.name} image={pokemon.sprites.front_default} />
       ))}
     </div>
   );
 }
-
-PokemonList.defaultProps = {
-  pokemons: Array(10).fill(''),
-};

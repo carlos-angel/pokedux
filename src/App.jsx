@@ -12,7 +12,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    getPokemons().then(({ data }) => dispatch(setPokemonsAction(data.results)));
+    getPokemons().then((data) => dispatch(setPokemonsAction(data)));
   }, []);
 
   return (
