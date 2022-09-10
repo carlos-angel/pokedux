@@ -5,7 +5,12 @@ export default function PokemonList({ pokemons }) {
   return (
     <div className='PokemonList'>
       {pokemons.map((pokemon) => (
-        <PokemonCard key={pokemon.id} name={pokemon.name} image={pokemon.sprites.front_default} />
+        <PokemonCard
+          key={pokemon.id}
+          name={pokemon.name}
+          image={pokemon.sprites.front_default}
+          types={pokemon.types}
+        />
       ))}
     </div>
   );
