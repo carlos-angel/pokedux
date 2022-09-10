@@ -10,6 +10,8 @@ export default function PokemonList({ pokemons }) {
           name={pokemon.name}
           image={pokemon.sprites.front_default}
           types={pokemon.types}
+          favorite={pokemon.favorite}
+          id={pokemon.id}
         />
       ))}
     </div>

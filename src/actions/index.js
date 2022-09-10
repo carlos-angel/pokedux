@@ -14,6 +14,13 @@ export function setLoadingAction() {
   };
 }
 
+export function toggleFavoriteAction(pokemonId) {
+  return {
+    type: types.toggleFavorite,
+    payload: pokemonId,
+  };
+}
+
 export const getPokemonsWithDetailsAction =
   (pokemons = []) =>
   async (dispatch) => {
