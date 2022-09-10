@@ -1,12 +1,12 @@
-import { Card } from 'antd';
+import { Card, Tag } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 import { useDispatch } from 'react-redux';
 import { toggleFavoriteAction } from '../../actions';
+import { getColorByPokemonType } from '../../utils';
 import StartButton from './StartButton';
 
 export default function PokemonCard({ id, name, image, types, favorite }) {
   const typesNamings = types.map(({ type }) => type.name);
-  const typesString = typesNamings.join(', ');
   const dispatch = useDispatch();
 
   const handleOnFavorite = () => dispatch(toggleFavoriteAction(id));
@@ -17,7 +17,15 @@ export default function PokemonCard({ id, name, image, types, favorite }) {
       cover={<img src={image} alt={name} />}
       extra={<StartButton isFavorite={favorite} onClick={handleOnFavorite} />}
     >
-      <Meta description={typesString} />
+      <Meta
+        avatar={
+          <>
+            {typesNamings.map((name) => (
+              <Tag color={getColorByPokemonType(name)}>{name}</Tag>
+            ))}
+          </>
+        }
+      />
     </Card>
   );
 }
