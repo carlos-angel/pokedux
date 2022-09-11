@@ -8,7 +8,6 @@ import StartButton from './StartButton';
 export default function PokemonCard({ id, name, image, types, favorite }) {
   const typesNamings = types.map(({ type }) => type.name);
   const dispatch = useDispatch();
-  console.log(name, id);
   const handleOnFavorite = () => dispatch(toggleFavoriteAction(id));
 
   return (
@@ -21,7 +20,9 @@ export default function PokemonCard({ id, name, image, types, favorite }) {
         avatar={
           <>
             {typesNamings.map((name) => (
-              <Tag color={getColorByPokemonType(name)}>{name}</Tag>
+              <Tag key={name} color={getColorByPokemonType(name)}>
+                {name}
+              </Tag>
             ))}
           </>
         }
