@@ -8,9 +8,10 @@ export function setPokemonsAction(payload) {
   };
 }
 
-export function setLoadingAction() {
+export function setLoadingAction(payload) {
   return {
     type: types.setLoading,
+    payload,
   };
 }
 
