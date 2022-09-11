@@ -8,7 +8,8 @@ import { getPokemonsWithDetailsAction, setLoadingAction } from './actions';
 import logo from './static/logo.svg';
 
 function App() {
-  const { pokemons, loading } = useSelector((state) => state);
+  const pokemons = useSelector((state) => state.get('pokemons')).toJS();
+  const loading = useSelector((state) => state.get('loading'));
   const dispatch = useDispatch();
 
   useEffect(() => {
